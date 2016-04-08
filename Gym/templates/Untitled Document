@@ -1,0 +1,32 @@
+{% if request.user.userprofile.needs_instructor %}
+                    {{request.user.userprofile.diet}}
+                    {% else %}
+                    <form method="post" action = ''>
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="Enter"/>
+</form>
+<table class="table table-hover">
+   <thead>
+      <tr>
+         <th>Meal</th>
+         <th>Food Types</th>
+         <th>Diet</th>
+
+      </tr>
+   </thead>
+   <tbody>
+
+{% for diets in table %}
+      <tr>
+          <td>{{diets.meal}}</td>
+          <td>{{diets.food_type}}</td>
+          <td>{{diets.diet}}</td>
+      </tr>
+      {% endfor %}
+        
+   {% endif %}
+   
+   
+   </tbody>
+</table>

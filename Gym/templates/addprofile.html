@@ -1,0 +1,13 @@
+
+<form method="post" ,action = ''>
+{% csrf_token %}
+{{form.as_p}}
+<label> </label>
+<input type="submit" value="Next"/>
+</form>
+
+{% if form.non_field_errors %}
+	<ul class="form-errors">
+		{{error}}
+	</ul>
+{% endif %}
